@@ -21,7 +21,9 @@ end
 
 RSpec.describe DockingStation do
   station = DockingStation.new
-  15.times{station.dock_bike}
+  bikes_in_circulation = []
+  20.times { bikes_in_circulation << Bike.new }
+  15.times{station.dock_bike(bikes_in_circulation.pop)}
 
   it {expect {station.dock_bike}.to raise_error}
 end
@@ -42,6 +44,34 @@ RSpec.describe Bike do
 
   it {is_expected.to respond_to(:working?)}
 
+end
+
+RSpec.describe DockingStation do
+  station = DockingStation.new
+
+  it {expect(station.full?).to eq false}
+end
+
+
+RSpec.describe DockingStation do
+  station = DockingStation.new
+  bikes_in_circulation = []
+  20.times { bikes_in_circulation << Bike.new }
+
+
+
+  15.times { station.dock_bike(bikes_in_circulation.pop) }
+
+  it {expect(station).to respond_to(:full?)}
+  it {expect(station.full?).to eq true }
+end
+
+RSpec.describe DockingStation do
+  station = DockingStation.new
+  5.times {station.release_bike}
+
+  it {expect(station).to respond_to(:empty?)}
+  it {expect(station).to be_empty}
 end
 
 

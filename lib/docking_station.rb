@@ -1,4 +1,4 @@
-
+require_relative 'bike'
 
 class DockingStation
 
@@ -6,20 +6,20 @@ class DockingStation
 
   def initialize
     @bikes = []
-    5.times{@bikes << Bike.new }
+    5.times{ @bikes << Bike.new }
   end
 
   def release_bike
-    if @bikes.empty?
+    if empty?
       raise "Error: No bikes left"
     else
       @bikes.pop
     end
   end
 
-  def dock_bike
-    if @bikes.count < 20
-      @bikes << Bike.new
+  def dock_bike(bike)
+    if !full? && bike.class == Bike
+      @bikes << bike
     else
       raise "Error: Bike station full"
     end
@@ -29,11 +29,14 @@ class DockingStation
     @bikes.count
   end
 
-end
+  private
 
-class Bike
-
-  def working?
-  true
+  def full?
+    @bikes.count >= 20
   end
+
+  def empty?
+    @bikes.empty?
+  end
+
 end
