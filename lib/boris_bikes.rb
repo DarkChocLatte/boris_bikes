@@ -10,7 +10,7 @@ class DockingStation
   def release_bike number = 1
     fail "Fail" if @bike_count < number
     @bike_count -= number
-    (number -1 ).times{ @bikes.pop }
+    (number - 1).times{ @bikes.pop }
     @bikes.pop
   end
 
