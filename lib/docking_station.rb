@@ -10,7 +10,11 @@ class DockingStation
   end
 
   def release_bike
-    @bikes.pop
+    if @bikes.empty?
+      raise "Error"
+    else
+     @bikes.pop
+    end
   end
 
   def dock_bike(bike)
