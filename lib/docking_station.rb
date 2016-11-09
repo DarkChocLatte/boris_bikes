@@ -11,9 +11,6 @@ class DockingStation
 
   def release_bike
     if @bikes.empty?
-      raise "Error"
-    else
-     @bikes.pop
     end
   end
 
