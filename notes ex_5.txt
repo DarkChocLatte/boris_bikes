@@ -1,4 +1,0 @@
-Rspec definition - It is a behaviour driven development framework (BDD). BDD
-is a refinement and synthesis of TDD and Acceptance Test Driven(ATD) development.
-ATD is a development methodology based on communication between business computers, developers and testers.
-ATD encompasses Acceptance tests but emphasises testing before coding.
