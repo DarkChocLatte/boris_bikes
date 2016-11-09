@@ -18,7 +18,7 @@ class DockingStation
   end
 
   def dock_bike
-    if @bikes.count < 10
+    if @bikes.count < 20
       @bikes << Bike.new
     else
       raise "Error: Bike station full"

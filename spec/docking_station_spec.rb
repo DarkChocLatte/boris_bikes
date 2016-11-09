@@ -21,7 +21,7 @@ end
 
 RSpec.describe DockingStation do
   station = DockingStation.new
-  5.times{station.dock_bike}
+  15.times{station.dock_bike}
 
   it {expect {station.dock_bike}.to raise_error}
 end
