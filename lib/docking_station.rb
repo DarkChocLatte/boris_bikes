@@ -11,15 +11,17 @@ class DockingStation
 
   def release_bike
     if @bikes.empty?
+      raise "Error: No bikes left"
+    else
+      @bikes.pop
     end
   end
 
-  def dock_bike(bike)
-    if bike.class == Bike
-      @bikes << bike
-      return "Bike Docked"
+  def dock_bike
+    if @bikes.count < 10
+      @bikes << Bike.new
     else
-      "That's not a bike"
+      raise "Error: Bike station full"
     end
   end
 

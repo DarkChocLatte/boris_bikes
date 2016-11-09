@@ -19,6 +19,12 @@ RSpec.describe DockingStation do
   it {expect {station.release_bike}.to raise_error}
 end
 
+RSpec.describe DockingStation do
+  station = DockingStation.new
+  5.times{station.dock_bike}
+
+  it {expect {station.dock_bike}.to raise_error}
+end
 RSpec.describe :release_bike do
   it {is_expected.not_to be_nil}
 end
