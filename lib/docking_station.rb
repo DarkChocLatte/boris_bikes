@@ -4,6 +4,7 @@ class DockingStation
 
   attr_reader = :bikes
 
+  public
   def initialize
     @bikes = []
     5.times{ @bikes << Bike.new }
@@ -18,7 +19,7 @@ class DockingStation
   end
 
   def dock_bike(bike)
-    if !full? && bike.class == Bike
+    unless full? && bike.class == Bike
       @bikes << bike
     else
       raise "Error: Bike station full"
@@ -26,10 +27,10 @@ class DockingStation
   end
 
   def bikes
-    @bikes.count
+    @bikes
   end
 
-  private
+#private
 
   def full?
     @bikes.count >= 20
